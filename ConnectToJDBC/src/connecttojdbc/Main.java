@@ -1,5 +1,7 @@
-
 package connecttojdbc;
+
+import java.sql.DriverManager;
+import java.sql.Connection;
 
 public class Main {
 
@@ -15,6 +17,7 @@ public class Main {
         String dbName = "games"; //pick name that you have
         
         //connect to DB
+        DriverManager.getConnection()
         
         //execute query
         
