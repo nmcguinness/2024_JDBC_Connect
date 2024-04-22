@@ -15,14 +15,23 @@ import java.sql.SQLException;
 
 public class DBConnection {
     
-    //connect
-    public Connection connect(String url, 
+    
+    /**
+     * Connects to MySQL DB
+     * @param url full DB URL
+     * @param dbName MySQL database name
+     * @param user user name, no spaces
+     * @param password password, no spaces
+     * @return 
+     */
+    public Connection connect(String url,
+            String dbName,
             String user, String password)
     {
         Connection conn = null;     
         try{         
-        conn = DriverManager.getConnection(url, 
-                            user, password);
+        conn = DriverManager.getConnection(
+                url + dbName, user, password);
         }
         catch(SQLException e)
         {
@@ -34,5 +43,8 @@ public class DBConnection {
     }
     
     //disconnect
-    
+    public boolean disconnect(Connection conn)
+    {
+        
+    }
 }
