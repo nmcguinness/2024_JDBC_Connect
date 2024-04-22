@@ -13,20 +13,18 @@ public class Main {
         
         //setup DB url stuff
         String dbURL = "jdbc:mysql://localhost:3306/";
-        String dbName = "games"; //pick name that you have
+        String dbName = "2024_ds1_ca3_games"; //pick name that you have
         
         //connect to database
         Connection conn = DBConnection.connect(dbURL, dbName, 
                 userName, password);
         
         //execute a query
-        ResultSet resultSet 
-           = DBCommand.executeQuery(conn, "SELECT * FROM releases");
+        ResultSet resultSet = DBCommand.executeQuery(conn, "SELECT * FROM games");
         DBCommand.showResultSet(resultSet);       
         
         //disconnect from database
-        DBConnection.disconnect(conn);
-         
+        DBConnection.disconnect(conn);        
     }
 
 //   public static void main(String[] args) {        

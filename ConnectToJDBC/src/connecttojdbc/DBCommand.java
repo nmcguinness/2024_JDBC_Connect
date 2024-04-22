@@ -22,7 +22,8 @@ public class DBCommand {
         try {
             statement = conn.createStatement();
             resultSet = statement.executeQuery(query);
-  
+           
+             
         } catch (SQLException ex) {
             Logger.getLogger(DBCommand.class.getName()).log(Level.SEVERE, null, ex);
         }   
@@ -35,7 +36,22 @@ public class DBCommand {
     
     public static void showResultSet(ResultSet resultSet)
     {
-        System.out.println("see video in Moodle to print results");
+        try {
+            while(resultSet.next())
+            {
+                System.out.println(resultSet.getInt("GameID"));
+                System.out.println(resultSet.getString("GameName"));
+                System.out.println(resultSet.getDate("ReleaseDate"));
+                System.out.println(resultSet.getString("Genre"));
+            }
+            
+             resultSet.close();
+        
+        } catch (SQLException ex) {
+                Logger.getLogger(DBCommand.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        
+       
     }
     
 }
