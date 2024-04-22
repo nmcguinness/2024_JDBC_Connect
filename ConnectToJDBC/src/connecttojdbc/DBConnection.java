@@ -12,6 +12,8 @@ package connecttojdbc;
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.SQLException;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 
 public class DBConnection {
     
@@ -42,9 +44,22 @@ public class DBConnection {
         return conn;
     }
     
-    //disconnect
+      
+    /**
+     * 
+     * @param conn Valid Connection object
+     * @return true, if success, otherwise, false
+     */
     public boolean disconnect(Connection conn)
     {
-        
+        try {
+            conn.close();
+            return true;
+            
+        } catch (SQLException ex) {
+            Logger.getLogger(DBConnection.class.getName()).log(Level.SEVERE, null, ex);
+            return false;
+        }
+
     }
 }
