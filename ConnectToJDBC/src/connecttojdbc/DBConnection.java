@@ -17,7 +17,6 @@ import java.util.logging.Logger;
 
 public class DBConnection {
     
-    
     /**
      * Connects to MySQL DB
      * @param url full DB URL
@@ -26,7 +25,7 @@ public class DBConnection {
      * @param password password, no spaces
      * @return 
      */
-    public Connection connect(String url,
+    public static Connection connect(String url,
             String dbName,
             String user, String password)
     {
@@ -50,7 +49,7 @@ public class DBConnection {
      * @param conn Valid Connection object
      * @return true, if success, otherwise, false
      */
-    public boolean disconnect(Connection conn)
+    public static boolean disconnect(Connection conn)
     {
         try {
             conn.close();
