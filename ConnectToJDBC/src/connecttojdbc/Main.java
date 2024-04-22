@@ -12,16 +12,17 @@ public class Main {
         String password = "";
         String userName =  "root";
         
-             
         //setup DB url stuff
         String dbURL = "jdbc:mysql://localhost:3306/";
         String dbName = "games"; //pick name that you have
         
+        //add conn variable and initialize to null
+        Connection conn = null;
         
         try{
             
          //connect to DB
-        Connection conn = DriverManager.getConnection(dbURL, 
+        conn = DriverManager.getConnection(dbURL, 
                             userName, password);
         
         }
@@ -37,8 +38,14 @@ public class Main {
         //execute query
         
         //disconnect from DB
+        try{
+            conn.close();
+        }
+        catch(SQLException e)
+        {
+            System.out.println(e.getMessage());
+        }
+            
     }
 }
-
-
 
